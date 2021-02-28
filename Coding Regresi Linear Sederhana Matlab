@@ -1,0 +1,21 @@
+xi=[1 2 3 4 5];
+yi=[2/3 1/2 1 2 3/4];
+
+Xi2=xi*xi';
+Yi2=yi*yi';
+XiYi=xi*yi';
+Sx=sum(xi);
+Sy=sum(yi);
+N=5;
+a=(Xi2*Sy-Sx*XiYi)/(N*Xi2-Sx^2);
+b=(N*XiYi-Sx*Sy)/(N*Xi2-Sx^2);
+a
+b
+xx=0:25;
+yy=a+b*xx;
+plot(xi,yi,'o',xx,yy)
+axis([0 25 0 15])
+title('Regresi Linear Nama:Johannes Rainier NRP:152017136')
+xlabel('x')
+ylabel('y')
+fprintf('Regresi Linear Y=[%2.4f]+[%2.4f]x\n',a,b)
