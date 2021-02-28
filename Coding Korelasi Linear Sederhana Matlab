@@ -1,0 +1,15 @@
+data_sepatu = xlsread('D:\DatasetKorelasiLinear.xlsx','Sheet1','B3:C12');
+
+x=data_sepatu(:,1);
+y=data_sepatu(:,2);
+
+R = corr(x,y);
+p = polyfit(x,y,1);
+y2 = p(1)*x+p(2);
+
+plot(x,y,'b*',x,y2,'-ro')
+grid on
+xlabel('Ukuran Europe')
+ylabel('Ukuran Korea')
+legend('Hasil Ukuran Europe','Hasil Ukuran Korea','Location','Northwest');
+title(['Korelasi Linear dengan','R=',num2str(R),'dan y=',num2str(p(1)),'x+',num2str(p(2))])
